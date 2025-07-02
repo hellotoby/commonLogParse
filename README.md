@@ -19,7 +19,7 @@ Example:
 ## Introduction
 
 This CLI tool analyzes logs in the
-[Extended Common Log Formatxt](https://en.wikipedia.org/wiki/Common_Log_Format)
+[Extended Common Log Format](https://en.wikipedia.org/wiki/Common_Log_Format)
 and provides answers to the following queries:
 
 - The number of unique IP addresses
