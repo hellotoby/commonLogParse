@@ -1,0 +1,16 @@
+// From the root directory run:
+// ./bin/mac/aarch64/commonLogParse --active-ips 3 --top-urls 3 --unique-ips ./test/sample.log > ./output/output.txt
+
+{
+  activeIpAddresses: [
+    [ "168.41.191.40", 4 ],
+    [ "177.71.128.21", 3 ],
+    [ "50.112.00.11", 3 ]
+  ],
+  topUrls: [
+    [ "/docs/manage-websites/", 2 ],
+    [ "/intranet-analytics/", 1 ],
+    [ "http://example.net/faq/", 1 ]
+  ],
+  uniqueIpAddresses: 11
+}
