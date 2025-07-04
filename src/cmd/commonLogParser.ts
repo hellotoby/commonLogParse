@@ -47,7 +47,7 @@ export function commonLogParser(options: Args): void {
     };
     Object.assign(results, { ...uniqueIps });
   }
-
+  // TODO: If outputting to a file or if we want to pip to jq, then these results need to be stringified.
   console.dir(results);
 }
 
@@ -134,6 +134,7 @@ function getPathFromUrl(url: string): string | undefined {
   if (URL.canParse(url, "http://example.net")) {
     return new URL(url, "http://example.net").pathname;
   } else if (URL.canParse(url)) {
+    // Maybe not valid for this format?
     return new URL(url).pathname;
   }
   console.error(`Could not parse URL: ${url}`);

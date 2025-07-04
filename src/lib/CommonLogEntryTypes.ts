@@ -32,7 +32,7 @@ export type RelativeUrl = `/${string}`;
 
 export type UrlUnionType = AbsoluteUrl | RelativeUrl;
 
-export type HttpProtocol = "HTTP/1.1" | "HTTP/2" | "HTTP/3";
+export type HttpProtocol = "HTTP/1.0" | "HTTP/1.1" | "HTTP/2" | "HTTP/3";
 
 export type RequestEntry =
   | `${HttpMethod} ${UrlUnionType} ${HttpProtocol}`

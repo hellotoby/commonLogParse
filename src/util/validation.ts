@@ -51,7 +51,7 @@ export function validateUserAgent(data: string): string {
 
 // Stub
 export function validateExtendedCommonLogValues(
-  data: string[] | RegExpMatchArray,
+  data: RegExpMatchArray,
 ): ExtendedCommonLogEntry {
   const source = data[0],
     ipAddress = validateIpAddress(data[1]),
