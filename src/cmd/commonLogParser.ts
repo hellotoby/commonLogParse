@@ -1,6 +1,9 @@
 import { type Args } from "@std/cli/parse-args";
 
-import { type ExtendedCommonLogEntry, type RequestEntry } from "../lib/CommonLogEntryTypes.ts";
+import {
+  type ExtendedCommonLogEntry,
+  type RequestEntry,
+} from "../lib/CommonLogEntryTypes.ts";
 import { makeExtendedCommonLogEntry } from "../lib/CommonLogEntry.ts";
 import { makeString } from "../util/helpers.ts";
 import { readFile } from "../util/io.ts";
@@ -110,20 +113,29 @@ export function countAggregateUrlsFromRequestEntry(
 }
 
 export function getUrlFromRequestString(
-  req: RequestEntry | undefined,
+  req: RequestEntry | string | undefined,
 ): string | undefined {
-  if (typeof req !== "undefined") {
+  if ((typeof req !== "undefined") && (typeof req === "string")) {
     const parts = req.trim().split(" ").map((value) => makeString(value));
     if (parts.length === 3) {
-      // Get the URL
       if (
         parts[1].startsWith("http") ||
         parts[1].startsWith("https") ||
         parts[1].startsWith("/")
       ) {
-        return parts[1];
+        return getPathFromUrl(parts[1]);
       }
     }
   }
+  return;
+}
+
+function getPathFromUrl(url: string): string | undefined {
+  if(URL.canParse(url, 'http://example.net')) {
+    return new URL(url, 'http://example.net').pathname;
+  } else if(URL.canParse(url)) {
+    return new URL(url).pathname;
+  }
+  console.error(`Could not parse URL: ${url}`);
   return;
 }
