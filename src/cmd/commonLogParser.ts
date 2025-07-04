@@ -131,9 +131,9 @@ export function getUrlFromRequestString(
 }
 
 function getPathFromUrl(url: string): string | undefined {
-  if(URL.canParse(url, 'http://example.net')) {
-    return new URL(url, 'http://example.net').pathname;
-  } else if(URL.canParse(url)) {
+  if (URL.canParse(url, "http://example.net")) {
+    return new URL(url, "http://example.net").pathname;
+  } else if (URL.canParse(url)) {
     return new URL(url).pathname;
   }
   console.error(`Could not parse URL: ${url}`);
